@@ -1,0 +1,88 @@
+{
+	"layer": "top",
+	"modules-left": ["hyprland/workspaces", "mpris"],
+	"modules-center": ["cava"],
+	"modules-right": ["network", "pulseaudio", "battery","idle_inhibitor","tray", "custom/weather", "clock", "custom/shutdown"],
+	
+	"pulseaudio": {
+		"tooltip": false,
+		"scroll-step": 5,
+		"format": "{icon}  {volume}%",
+		"format-icons": {
+			"default": ["-","","", "","", ""]
+		},
+		"format-muted": "- {volume}%",
+		"format-source-muted":" {volume}%",
+		"on-click": "pavucontrol"
+	},
+	"clock": {
+	  	"interval": 60,
+ 	 	"tooltip": true,
+		// "format": "{:%H:%M}",
+		"format": "| {:%H:%M Uhr | %d.%m.%Y}",
+  		"tooltip-format": "{:%d.%m.%Y}",
+ 		"on-click": "gnome-calendar",
+	},
+	"network": {
+		"tooltip": false,
+		"format":"  kein WLAN",
+		"format-wifi": " {essid}",
+		"format-ethernet": " {ipaddr}",
+		"on-click": "networkmanager_dmenu"
+	},
+    	"hyprland/mode": {
+        	"format": "<span style=\"italic\">{}</span>"
+    	},
+	"hyprland/window": {  
+		"format": "{}",   // <--- these is the default value
+		"icon": false    
+	},
+	"tray": {
+		"spacing": 10,
+		"show-passive-items": true,
+	},
+	"custom/weather": {
+		"format": "{} °",
+		"tooltip": true,
+		"interval":300,
+		"exec": "/home/fabi/.local/bin/wttrbar --location Magdeburg --date-format %d.%m.%Y",
+		"return-type": "json"
+	},
+	"battery": {
+		"bat": "BAT0",
+	  	"states": {
+  			"warning": 30,
+  			"critical": 15
+  		},
+		"format": "{icon}  {capacity}%",
+		"format-icons": ["", "", "", "", ""],
+		"format-charging":"  {capacity}%",
+		//"format-full": "100% geladen"
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+	
+		}
+	},
+	"mpris": {
+		"format": "{player_icon}    {artist}:  {title}",
+		"format-paused": "{player_icon}    {artist}:  {title}",
+		"player-icons": {
+			"default": "",
+			"spotify": "",
+			"kasts": ""
+		},
+		// "ignored-players": ["firefox"]
+	},
+	"custom/shutdown": {
+		"format":"",
+		"on-click": "rofi -show power-menu -modi power-menu:'bash /home/fabi/.local/bin/rofi-power-menu'"
+	},
+	"custom/notification": {
+		"format": "",
+		"on-click": "swaync-client -op"
+	}
+}

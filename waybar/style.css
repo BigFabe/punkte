@@ -1,0 +1,216 @@
+/*
+ ********************************************
+ *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
+ *░░█▀█░█░░░█░█░█▀▀░░░█░█░█░░░▀█▀░█▀▄░█▀█░░*
+ *░░█▀▀░█░░░█░█░▀▀█░░░█░█░█░░░░█░░█▀▄░█▀█░░*
+ *░░▀░░░▀▀▀░▀▀▀░▀▀▀░░░▀▀▀░▀▀▀░░▀░░▀░▀░▀░▀░░*
+ *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
+ ********************************************
+ */
+@background
+* {
+	border:15;
+	border-radius: 0;
+	font-family: monospace;
+	font-size: 14px;
+	min-height: 24px;
+	border-radius: 5px;
+	
+}
+/*
+label {
+	color: @foreground;
+}
+*/
+window#waybar {
+	background: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#window {
+    margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+	border-radius: 26px;
+	transition: none;
+	/*
+    color: #f8f8f2;
+	background: #282a36;
+    */
+    color: transparent;
+	background: transparent;
+}
+
+
+#workspaces {
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-bottom: 0px;
+	transition: none;
+	background: @background;
+}
+
+#workspaces button {
+	transition: .2s;
+	color: #f8f8f2;
+	background: transparent;
+	color: @foreground;
+	font-size: 16px;
+}
+
+#workspaces button.active {
+	margin-top: 0px;
+	font-weight: bold;
+	font-size: 20px;
+	transition: .2s;
+    margin-top: 0px;
+    margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0;
+    
+	background: @foreground;  	
+  	color: @background;
+}
+
+
+#workspaces button.focused {
+	color: #9aedfe;
+}
+
+#workspaces button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: #ff79c6;
+}
+
+#custom-media {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	
+	background: #282a36;
+	transition: none;
+	background-color: @background;
+	color: @foreground;
+	font-weight: bold;
+}
+
+#mpris {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	
+	background: #282a36;
+	transition: none;
+	background-color: @background;
+	color: @foreground;
+	font-weight: bold;
+}
+
+
+#custom-shutdown {
+	margin-top: 8px;
+	margin-right: 16px;
+    font-weight: bold;
+    font-size: 20px;
+	color: @foreground;
+}
+
+
+#network {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	
+	transition: none;
+	color: @foreground;
+	background-color: @background;
+	font-weight: bold;
+}
+
+#pulseaudio {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	
+	transition: none;
+	color: @foreground;
+	background: @background;
+	font-weight: bold;
+}
+
+#battery {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	
+	transition: none;
+	background: @background;
+	color: @foreground;
+	font-weight: bold;
+}
+#tray {
+    margin-left: 8px;
+	margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 0;
+    
+    background: @background;
+}
+
+
+#custom-weather {
+	margin-top: 8px;
+	margin-left: 8px;
+	margin-right: -12px;
+	padding-left: 16px;
+	padding-top: 0px;
+	padding-right: 20px;
+	margin-bottom: 0;
+	
+	transition: none;
+	color: @foreground;
+	background-color: @background;
+	font-weight: bold;
+}
+
+#idle_inhibitor {
+    margin-left: 8px;
+	margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 0;
+    
+    background: @background;
+	color: @foreground;
+}
+
+#clock {
+	margin-top: 8px;
+	margin-left: -18px;
+	margin-right: 12px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	
+	transition: none;
+	background: @background;
+	font-weight: bold;
+	color: @foreground;
+}
+

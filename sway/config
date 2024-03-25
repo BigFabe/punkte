@@ -1,0 +1,236 @@
+
+
+
+font pango:monospace 8
+include /etc/sway/config.d/*
+input type:touchpad {
+        tap enabled
+        natural_scroll enabled
+
+}
+
+input * {
+        xkb_layout de
+        xkb_variant mac
+
+}
+
+# AUTOSTART
+output eDP-1 scale 1
+output eDP-1 mode --custom 1920x1200 bg /home/fabi/Sync/Config/Wallpapers/Sway_Wallpaper_Blue_1920x1080.png stretch
+
+
+
+
+exec --no-startup-id mullvad-vpn
+exec --no-startup-id telegram-desktop
+
+
+exec swayidle -w \
+	timeout 300 'swaylock -f -i /home/fabi/Sync/Config/Wallpapers/Sway_Wallpaper_Blue_1920x1080.png' \
+	timeout 305 'systemctl suspend' \
+	resume 'swaymsg "output * power on"'
+bindswitch --reload --locked lid:on exec 'swaylock -f -i /home/fabi/Sync/Config/Wallpapers/Sway_Wallpaper_Blue_1920x1080.png'
+
+
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && ( [ "$(pactl get-sink-mute @DEFAULT_SINK@)" = "Mute: yes" ] && echo 0 > $WOBSOCK ) || pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
+bindsym XF86MonBrightnessUp exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
+
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+
+focus_follows_mouse always
+
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next 
+
+bindsym --release Mod4+Shift+s exec --no-startup-id grimshot copy area 
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up k
+set $down j
+set $left h
+set $right l
+
+# use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier Mod4
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+# tiling_drag modifier titlebar
+
+
+
+# SHORTCUTS
+bindsym Mod4+c exec kitty
+bindsym Mod4+f exec firefox
+bindsym Mod4+e exec thunar
+bindsym Mod4+t exec telegram-desktop
+bindsym Mod4+u exec dialect
+
+
+
+gaps inner 3px
+gaps outer 3px
+
+bindsym Mod4+q kill
+
+# start dmenu (a program launcher)
+# bindsym Mod4+d exec --no-startup-id dmenu_run
+# A more modern dmenu replacement is rofi:
+#bindsym Mod4+d exec "rofi -modi drun,run -show drun"
+# There also is i3-dmenu-desktop which only displays applications shipping a
+# .desktop file. It is a wrapper around dmenu, so you need that installed.
+bindsym Mod4+d exec j4-dmenu-desktop 
+
+# change focus
+bindsym Mod4+$left focus left
+bindsym Mod4+$down focus down
+bindsym Mod4+$up focus up
+bindsym Mod4+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Left focus left
+bindsym Mod4+Down focus down
+bindsym Mod4+Up focus up
+bindsym Mod4+Right focus right
+
+# move focused window
+bindsym Mod4+Shift+$left move left
+bindsym Mod4+Shift+$down move down
+bindsym Mod4+Shift+$up move up
+bindsym Mod4+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+#bindsym Mod4+Shift+Left move left
+#bindsym Mod4+Shift+Down move down
+#bindsym Mod4+Shift+Up move up
+#bindsym Mod4+Shift+Right move right
+
+# split in horizontal orientation
+bindsym Mod4+v split h
+
+# split in vertical orientation
+bindsym Mod4+n split v
+
+# enter fullscreen mode for the focused container
+bindsym Mod4+w fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym Mod4+s layout stacking
+#bindsym Mod4+w layout tabbed
+bindsym Mod4+space layout toggle split
+
+# toggle tiling / floating
+bindsym Mod4+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym Mod4+z focus mode_toggle
+
+# focus the parent container
+bindsym Mod4+a focus parent
+
+# focus the child container
+#bindsym Mod4+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym Mod4+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym Mod4+minus scratchpad show
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym Mod4+1 workspace number $ws1
+bindsym Mod4+2 workspace number $ws2
+bindsym Mod4+3 workspace number $ws3
+bindsym Mod4+4 workspace number $ws4
+bindsym Mod4+5 workspace number $ws5
+bindsym Mod4+6 workspace number $ws6
+bindsym Mod4+7 workspace number $ws7
+bindsym Mod4+8 workspace number $ws8
+bindsym Mod4+9 workspace number $ws9
+bindsym Mod4+0 workspace number $ws10
+
+bindsym Mod4+comma workspace prev
+bindsym Mod4+period workspace next
+
+
+# move focused container to workspace
+bindsym Mod4+Shift+1 move container to workspace number $ws1
+bindsym Mod4+Shift+2 move container to workspace number $ws2
+bindsym Mod4+Shift+3 move container to workspace number $ws3
+bindsym Mod4+Shift+4 move container to workspace number $ws4
+bindsym Mod4+Shift+5 move container to workspace number $ws5
+bindsym Mod4+Shift+6 move container to workspace number $ws6
+bindsym Mod4+Shift+7 move container to workspace number $ws7
+bindsym Mod4+Shift+8 move container to workspace number $ws8
+bindsym Mod4+Shift+9 move container to workspace number $ws9
+bindsym Mod4+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym Mod4+Shift+c reload
+
+# exit i3 (logs you out of your X session)
+bindsym Mod4+Shift+m exec i3-msg exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or Mod4+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Mod4+r mode "default"
+}
+
+bindsym Mod4+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+
+bar {
+   #status_command i3status -c /home/fabi/.config/i3status/i3status.conf | ~/.config/i3/i3status_wrapper.py
+   status_command i3blocks
+   position top
+   font pango:Inconsolata, Icons 10
+   font pango:Hack, Font Awesome 10
+}
+
+#exec_always --no-startup-id "killall polybar && polybar"

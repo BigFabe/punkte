@@ -1,0 +1,114 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+
+separator_block_width=30
+markup=none
+command=/home/fabi/.config/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+
+
+
+[mediaplayer]
+interval=5
+signal=10
+
+
+[rofi-wttr]
+interval=600
+#BAR_POSITION=top
+#FONT=Monospace 10
+#LABEL=🌡️
+#LOCATION=Magdeburg
+#ROFI_CONFIG_FILE=/dev/null
+
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+
+
+
+[bandwidth3]
+#command=$SCRIPT_DIR/bandwidth3
+interval=persist
+markup=pango
+onclick=networkmanager_dmenu
+
+
+# CPU usage
+#
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[cpu_usage]
+label=
+interval=2
+#separator=false
+[memory]
+label=
+separator=true
+interval=30
+
+
+
+[battery]
+label=
+#label=⚡
+#instance=1
+interval=30
+
+[consum]
+interval=2
+#sepeator=false
+# Date Time
+#
+[time]
+label=
+command=date '+%a %d.%m.%Y %H:%M'
+interval=5
+
+
+
+# Temperature
+#
+# Support multiple chips, though lm-sensors.
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+#[temperature]
+#label=TEMP
+#interval=10
+
+# Key indicators
+#
+# Add the following bindings to i3 config file:
+#
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+#[keyindicator]
+#instance=CAPS
+#interval=once
+#signal=11
+
+
