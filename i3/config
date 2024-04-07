@@ -47,21 +47,21 @@ gaps outer 3px
 
 
 
-floating_modifier Mod4
+floating_modifier Mod1
 tiling_drag modifier titlebar
 
 # SHORTCUTS
-bindsym Mod4+c exec --no-startup-id kitty
-bindsym Mod4+f exec --no-startup-id firefox
-bindsym Mod4+e exec --no-startup-id thunar
-bindsym Mod4+t exec --no-startup-id telegram-desktop
-bindsym Mod4+g exec --no-startup-id geary
-bindsym Mod4+u exec --no-startup-id gtk-launch webapp-Deepl1048.desktop
-bindsym Mod4+i exec --no-startup-id gtk-launch webapp-ChatGPT0725.desktop
+bindsym Mod1+c exec --no-startup-id kitty
+bindsym Mod1+f exec --no-startup-id firefox
+bindsym Mod1+e exec --no-startup-id thunar
+bindsym Mod1+t exec --no-startup-id telegram-desktop
+bindsym Mod1+g exec --no-startup-id geary
+bindsym Mod1+u exec --no-startup-id gtk-launch webapp-Deepl1048.desktop
+bindsym Mod1+i exec --no-startup-id gtk-launch webapp-ChatGPT0725.desktop
 
-bindsym Mod4+q kill
+bindsym Mod1+q kill
 
-bindsym Mod4+d exec --no-startup-id rofi -show drun
+bindsym Mod1+d exec --no-startup-id rofi -show drun
 
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
@@ -76,7 +76,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
-bindsym --release Mod4+Shift+s exec --no-startup-id import /home/fabi/Bilder/lastscreenshot.png && cat /home/fabi/Bilder/lastscreenshot.png | xclip -selection clipboard -target image/png -i
+bindsym --release Mod1+Shift+s exec --no-startup-id import /home/fabi/Bilder/lastscreenshot.png && cat /home/fabi/Bilder/lastscreenshot.png | xclip -selection clipboard -target image/png -i
 
 
 set $up k
@@ -85,52 +85,52 @@ set $left h
 set $right l
 
 # change focus
-bindsym Mod4+$left focus left
-bindsym Mod4+$down focus down
-bindsym Mod4+$up focus up
-bindsym Mod4+$right focus right
+bindsym Mod1+$left focus left
+bindsym Mod1+$down focus down
+bindsym Mod1+$up focus up
+bindsym Mod1+$right focus right
 
 # alternatively, you can use the cursor keys:
-#bindsym Mod4+Left focus left
-bindsym Mod4+Down focus down
-bindsym Mod4+Up focus up
-#bindsym Mod4+Right focus right
+#bindsym Mod1+Left focus left
+bindsym Mod1+Down focus down
+bindsym Mod1+Up focus up
+#bindsym Mod1+Right focus right
 
 # move focused window
-bindsym Mod4+Shift+$left move left
-bindsym Mod4+Shift+$down move down
-bindsym Mod4+Shift+$up move up
-bindsym Mod4+Shift+$right move right
+bindsym Mod1+Shift+$left move left
+bindsym Mod1+Shift+$down move down
+bindsym Mod1+Shift+$up move up
+bindsym Mod1+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod4+Shift+Left move left
-#bindsym Mod4+Shift+Down move down
-#bindsym Mod4+Shift+Up move up
-bindsym Mod4+Shift+Right move right
+bindsym Mod1+Shift+Left move left
+#bindsym Mod1+Shift+Down move down
+#bindsym Mod1+Shift+Up move up
+bindsym Mod1+Shift+Right move right
 
 
-bindsym Mod4+v split h
-bindsym Mod4+n split v
+bindsym Mod1+v split h
+bindsym Mod1+n split v
 
 
-bindsym Mod4+w fullscreen toggle
+bindsym Mod1+w fullscreen toggle
 
 
-bindsym Mod4+s layout stacking
-#bindsym Mod4+w layout tabbed
-bindsym Mod4+space layout toggle split
+bindsym Mod1+s layout stacking
+#bindsym Mod1+w layout tabbed
+bindsym Mod1+space layout toggle split
 
 
-bindsym Mod4+Shift+space floating toggle
-bindsym Mod4+z focus mode_toggle
+bindsym Mod1+Shift+space floating toggle
+bindsym Mod1+z focus mode_toggle
 
 
-bindsym Mod4+a focus parent
-#bindsym Mod4+d focus child
+bindsym Mod1+a focus parent
+#bindsym Mod1+d focus child
 
 
-bindsym Mod4+Shift+minus move scratchpad
-bindsym Mod4+minus scratchpad show
+bindsym Mod1+Shift+minus move scratchpad
+bindsym Mod1+minus scratchpad show
 
 
 set $ws1 "1"
@@ -145,37 +145,37 @@ set $ws9 "9"
 set $ws10 "10"
 
 
-bindsym Mod4+1 workspace number $ws1
-bindsym Mod4+2 workspace number $ws2
-bindsym Mod4+3 workspace number $ws3
-bindsym Mod4+4 workspace number $ws4
-bindsym Mod4+5 workspace number $ws5
-bindsym Mod4+6 workspace number $ws6
-bindsym Mod4+7 workspace number $ws7
-bindsym Mod4+8 workspace number $ws8
-bindsym Mod4+9 workspace number $ws9
-bindsym Mod4+0 workspace number $ws10
+bindsym Mod1+1 workspace number $ws1
+bindsym Mod1+2 workspace number $ws2
+bindsym Mod1+3 workspace number $ws3
+bindsym Mod1+4 workspace number $ws4
+bindsym Mod1+5 workspace number $ws5
+bindsym Mod1+6 workspace number $ws6
+bindsym Mod1+7 workspace number $ws7
+bindsym Mod1+8 workspace number $ws8
+bindsym Mod1+9 workspace number $ws9
+bindsym Mod1+0 workspace number $ws10
 
 
-bindsym Mod4+comma workspace prev
-bindsym Mod4+period workspace next
+bindsym Mod1+comma workspace prev
+bindsym Mod1+period workspace next
 
 
-bindsym Mod4+Shift+1 move container to workspace number $ws1
-bindsym Mod4+Shift+2 move container to workspace number $ws2
-bindsym Mod4+Shift+3 move container to workspace number $ws3
-bindsym Mod4+Shift+4 move container to workspace number $ws4
-bindsym Mod4+Shift+5 move container to workspace number $ws5
-bindsym Mod4+Shift+6 move container to workspace number $ws6
-bindsym Mod4+Shift+7 move container to workspace number $ws7
-bindsym Mod4+Shift+8 move container to workspace number $ws8
-bindsym Mod4+Shift+9 move container to workspace number $ws9
-bindsym Mod4+Shift+0 move container to workspace number $ws10
+bindsym Mod1+Shift+1 move container to workspace number $ws1
+bindsym Mod1+Shift+2 move container to workspace number $ws2
+bindsym Mod1+Shift+3 move container to workspace number $ws3
+bindsym Mod1+Shift+4 move container to workspace number $ws4
+bindsym Mod1+Shift+5 move container to workspace number $ws5
+bindsym Mod1+Shift+6 move container to workspace number $ws6
+bindsym Mod1+Shift+7 move container to workspace number $ws7
+bindsym Mod1+Shift+8 move container to workspace number $ws8
+bindsym Mod1+Shift+9 move container to workspace number $ws9
+bindsym Mod1+Shift+0 move container to workspace number $ws10
 
 
-bindsym Mod4+Shift+c reload
-bindsym Mod4+Shift+r restart
-bindsym Mod4+Shift+m exec i3-msg exit
+bindsym Mod1+Shift+c reload
+bindsym Mod1+Shift+r restart
+bindsym Mod1+Shift+m exec i3-msg exit
 
 
 # resize window (you can also use the mouse for that)
@@ -197,13 +197,13 @@ mode "resize" {
         bindsym Up          resize shrink height 10 px or 10 ppt
         bindsym Right       resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or Mod4+r
+        # back to normal: Enter or Escape or Mod1+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym Mod4+r mode "default"
+        bindsym Mod1+r mode "default"
 }
 
-bindsym Mod4+r mode "resize"
+bindsym Mod1+r mode "resize"
 
 
 
